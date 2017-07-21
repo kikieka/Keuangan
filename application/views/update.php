@@ -3,57 +3,44 @@ $this->load->view('template/head');
 $this->load->view('template/topbar');
 $this->load->view('template/sidebar');
 ?>
-
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-        TAMBAH DAFTAR USER
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li class="active">Transaksi</li>
-        <li class="active">Tambah Transaksi</li> 
-    </ol>
-    <div class="form-group" field-user>
-
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 <head>
-    <title></title>
+	<title></title>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form  action="<?php echo base_url();?>C_user/tambah" method="POST">
-    <div class="form-group">
-        <label for="exampleInputId">ID_User</label>
-        <input type="id_user" class="form-control" id="exampleInputId" placeholder="Masukkan Id">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputName">Username</label>
-        <input type="username" class="form-control" id="exampleInputEmail1" placeholder="Username">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password Repeat</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-        <label for="exampleInputRole">Role</label><br>
-            <select name="role">
-                <option value="Super Admin">Super Admin</option>
-                <option value="Admin">Admin</option>
-                <option value="Bendahara">Bendahara</option>
-            </select>
-  <br>
-  <br>
-    <a href="financial/v_user"><button type="submit" class="btn btn-default">Submit</button>
-    </a>
-</form>
+<div class="text-center">
+	<h2>Update Data User</h2>
+<?php
+	foreach($financial as $user){ ?>
+		<form  action="<?php echo base_url();?>C_user/do_edit" method="POST">
+		<table style="margin:20px auto;">
+		<tr>
+		<td>Username</td>
+		<td>
+		<input type="hidden" name="id_user" value="<?php echo $user->id_user ?>"
+		</td>
+		<td>
+		<input type="text" name="username" value="<?php echo $user->username ?>"
+		</td>
+		<td>Role</td>
+		<td><input type="text" name="role" value="<?php echo $user->role ?>"
+		</td>
+		<td><button type="submit" class="btn btn-success">Update</button>
+		</td>
+		</tr>
+		</table>
+		</form>
+	<?php }
+?>
+</div>
 </body>
 </html>
-
-</section>
 
 <?php
 $this->load->view('template/js');

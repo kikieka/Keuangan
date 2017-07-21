@@ -7,52 +7,60 @@ $this->load->view('template/sidebar');
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        TAMBAH DAFTAR USER
+        OPERASIONAL 
+        <small>Daftar Operasional</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
         <li class="active">Transaksi</li>
-        <li class="active">Tambah Transaksi</li> 
     </ol>
-    <div class="form-group" field-user>
+    <!-- Main content -->
+    <section class="content">
+          <div class="row">
+            <div class="col-md-12">
+            <p>
+            <a class="btn btn-success" href="<?php echo base_url('C_transaksi/tambah')?>" type="submit">Tambah Operasional</a>
+            </p>
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Daftar Operasional</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th style="width: 10px">ID</th>
+                      <th>Tanggal</th>
+                      <th>ID_member</th>
+                      <th>Kategori</th>
+                      <th>Type</th>
+                      <th>Jumlah</th>
+                      <th>Keterangan</th>
+                      <th>Action</th>
+                    </tr>
+                    <?php  
+                  $id_transaksi=1;
+                  foreach ($financial as $transaksi) {
+                    echo "<tr>";
+                    echo '<td>'.$transaksi['id_transaksi']."</td>";
+                    echo '<td>'.$transaksi['tanggal']."</td>";
+                    echo '<td>'.$transaksi['id_member']."</td>";
+                    echo '<td>'.$transaksi['id_kategori']."</td>";
+                    echo '<td>'.$transaksi['tipe']."</td>";
+                    echo '<td>'.$transaksi['jml_transaksi']."</td>";
+                    echo '<td>'.$transaksi['keterangan']."</td>";
+                    //echo '<td>'.anchor('buku/edit/'.$buku['idNovel'],'Edit')."</td>";
+                    //echo '<td><a data-toggle="modal" id="test" data-target="#m_delete" data-href="'.base_url()."buku/hapus/".$buku['idNovel'].'"> Hapus</td>';
+                    //echo '<td>'.anchor('buku/hapus/'.$buku['idNovel'],'Hapus')."</td>";
+                    echo "</tr>";
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<form  action="<?php echo base_url();?>C_user/tambah" method="POST">
-    <div class="form-group">
-        <label for="exampleInputId">ID_User</label>
-        <input type="id_user" class="form-control" id="exampleInputId" placeholder="Masukkan Id">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputName">Username</label>
-        <input type="username" class="form-control" id="exampleInputEmail1" placeholder="Username">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password Repeat</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-        <label for="exampleInputRole">Role</label><br>
-            <select name="role">
-                <option value="Super Admin">Super Admin</option>
-                <option value="Admin">Admin</option>
-                <option value="Bendahara">Bendahara</option>
-            </select>
-  <br>
-  <br>
-    <a href="financial/v_user"><button type="submit" class="btn btn-default">Submit</button>
-    </a>
-</form>
-</body>
-</html>
-
+                  }
+                  ?>
+                  </table>
+                </div><!-- /.box -->
+          </div>
+          </div>
+        </div>
+    </section>
 </section>
 
 <?php
