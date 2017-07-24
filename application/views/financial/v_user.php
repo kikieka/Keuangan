@@ -40,7 +40,7 @@ $this->load->view('template/sidebar');
                     echo '<td>'.$user['username']."</td>";
                     echo '<td>'.$user['role']."</td>";
                     echo '<td>'.anchor('C_user/edit/'.$user['id_user'],'Update')."</td>";
-                    
+                    echo '<td>'.anchor('C_user/delete/'.$user['id_user'],'Delete').'</td>';                    
                     /**echo '<td>'.$user['action']."</td>";*/
                     //echo '<td>'.anchor('buku/edit/'.$buku['idNovel'],'Edit')."</td>";
                     //echo '<td><a data-toggle="modal" id="test" data-target="#m_delete" data-href="'.base_url()."buku/hapus/".$buku['idNovel'].'"> Hapus</td>';

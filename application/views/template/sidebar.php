@@ -42,7 +42,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo site_url('C_transaksi')?>"><i class="fa fa-circle-o text-info"></i> Daftar Operasional</a></li>
+                    <li><a href="<?php echo site_url('C_operasional')?>"><i class="fa fa-circle-o text-info"></i> Daftar Operasional</a></li>
                     <li><a href="<?php echo site_url('C_incometransaksi')?>"><i class="fa fa-circle-o text-info"></i> Input Outcome</a></li>
                 </ul>
             </li>
@@ -86,7 +86,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?php echo site_url('C_transaksi')?>"><i class="fa fa-circle-o text-info"></i> Transaksi perbulan/pertahun</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-info"></i> Operasional</a></li>
+                    <li><a href="<?php echo site_url('C_operasional')?>"><i class="fa fa-circle-o text-info"></i> Operasional</a></li>
                 </ul>
             </li>
     </section>

@@ -12,7 +12,7 @@ class C_operasional extends CI_Controller {
 
 	public function index()
 	{
-		$data['financial']=$this->db->query('select * from transaksi')->result_array();
+		$data['financial']=$this->db->query('select * from transaksi where id_kategori="1234"')->result_array();
 		$this->load->view('financial/v_operasional', $data);
 	}
 	public function tambah()
@@ -36,10 +36,10 @@ class C_operasional extends CI_Controller {
 				'keterangan'=>$keterangan,
 				);
 			$this->db->insert("transaksi", $simpan_data);
-			redirect(base_url('C_transaksi'));
+			redirect(base_url('C_operasional'));
 		}
 		else{
-			$this->load->view('financial/tambah_t.php');
+			$this->load->view('financial/tambah_o.php');
 		}
 	}
 }

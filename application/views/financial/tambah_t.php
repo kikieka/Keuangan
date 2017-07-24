@@ -22,11 +22,6 @@ $this->load->view('template/sidebar');
     <title></title>
 </head>
 <body>
-<form  action="<?php echo base_url();?>C_user/tambah" method="POST">
-    <div class="form-group">
-        <label for="exampleInputId">ID_User</label>
-        <input type="id_user" class="form-control" id="exampleInputId" placeholder="Masukkan Id">
-    </div>
     <div class="form-group">
         <label for="exampleInputName">Username</label>
         <input type="username" class="form-control" id="exampleInputEmail1" placeholder="Username">
@@ -47,9 +42,8 @@ $this->load->view('template/sidebar');
             </select>
   <br>
   <br>
-    <a href="financial/v_user"><button type="submit" class="btn btn-default">Submit</button>
+    <a href="financial/v_user"><button type="submit"  class="btn btn-default">Submit</button>
     </a>
-</form>
 </body>
 </html>
 

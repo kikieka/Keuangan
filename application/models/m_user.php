@@ -12,7 +12,7 @@ class m_user extends CI_Model
 	function update($where , $table){
 		return $this->db->get_where($table , $where);
 	}
-	function delete($where , $table){
+	function hapus($where , $table){
 		$this->db->where($where);
 		$this->db->delete($table);
 	}

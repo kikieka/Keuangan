@@ -7,6 +7,7 @@ class C_user extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('m_user');
+		$this->load->helper('form');
 
 	}
 
@@ -15,9 +16,15 @@ class C_user extends CI_Controller {
 		$data['financial']=$this->db->query('select * from user')->result_array();
 		$this->load->view('financial/v_user.php', $data);
 	}
+
+	public function tambah_lihat(){
+
+	}
+
 	public function tambah()
 	{
 		if (isset($_POST['submit'])) {
+			die();
 			$id 			=	$this->input->post ('id_user');
 			$name			=	$this->input->post ('username');
 			$jabatan 		=	$this->input->post ('role');
@@ -30,8 +37,7 @@ class C_user extends CI_Controller {
 				'action'=>$action,
 				);
 			$this->db->insert("user", $simpan_data);
-			redirect(base_url('C_user'));
-		}
+		} 	
 		else{
 			$this->load->view('financial/tambah_t.php');
 		}
@@ -61,9 +67,9 @@ class C_user extends CI_Controller {
 		$data['financial'] = $this->db->get_where('user', $kondisi)->result_array();
 		$this->load->view('financial/v_user', $data);
 	}
-	public function delete($id){
+	public function delete($id_user){
 		$where = array('id_user'=>$id_user);
-		$this->m_user->delete($where,'user');
+		$this->m_user->hapus($where,'user');
 		redirect('C_user/index');
 	}
 }

@@ -37,7 +37,7 @@
 	</tbody>
 	</table>
 	<center>
-	<a href="<?php echo base_url();?>C_user"><button type="button" class="btn btn-warning">Back</button></a>
+	<a href="<?php echo base_url();?>C_user/tambah"><button type="button" class="btn btn-warning">Back</button></a>
 	</center>
 </body>
 </html>
