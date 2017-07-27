@@ -7,7 +7,7 @@ $this->load->view('template/sidebar');
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        OPERASIONAL 
+        OPERASIONAL<br>
         <small>Daftar Operasional</small>
     </h1>
     <ol class="breadcrumb">
@@ -18,9 +18,6 @@ $this->load->view('template/sidebar');
     <section class="content">
           <div class="row">
             <div class="col-md-12">
-            <p>
-            <a class="btn btn-success" href="<?php echo base_url('C_operasional/tambah')?>" type="submit">Tambah Operasional</a>
-            </p>
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Daftar Operasional</h3>
@@ -35,7 +32,7 @@ $this->load->view('template/sidebar');
                       <th>Type</th>
                       <th>Jumlah</th>
                       <th>Keterangan</th>
-                      <!--<th>Action</th>-->
+                      <th colspan="2">Action</th>
                     </tr>
                     <?php  
                   $id_transaksi=1;
@@ -48,6 +45,8 @@ $this->load->view('template/sidebar');
                     echo '<td>'.$transaksi['tipe']."</td>";
                     echo '<td>'.$transaksi['jml_transaksi']."</td>";
                     echo '<td>'.$transaksi['keterangan']."</td>";
+                    echo '<td>' .anchor('C_operasional/edit/'.$transaksi['id_transaksi'],'Update').'</td>';
+                    echo '<td>'.anchor('C_operasional/delete/'.$transaksi['id_transaksi'],'Delete').'</td>';
                     //echo '<td>'.anchor('buku/edit/'.$buku['idNovel'],'Edit')."</td>";
                     //echo '<td><a data-toggle="modal" id="test" data-target="#m_delete" data-href="'.base_url()."buku/hapus/".$buku['idNovel'].'"> Hapus</td>';
                     //echo '<td>'.anchor('buku/hapus/'.$buku['idNovel'],'Hapus')."</td>";

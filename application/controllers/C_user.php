@@ -16,39 +16,32 @@ class C_user extends CI_Controller {
 		$data['financial']=$this->db->query('select * from user')->result_array();
 		$this->load->view('financial/v_user.php', $data);
 	}
-
-	public function tambah_lihat(){
-
-	}
-
+	/**public function tambah_form(){
+		$this->load->view('tambah_t');
+	}*/
 	public function tambah()
 	{
-		if (isset($_POST['submit'])) {
-			die();
-			$id 			=	$this->input->post ('id_user');
-			$name			=	$this->input->post ('username');
-			$jabatan 		=	$this->input->post ('role');
-			$action		 	=	$this->input->post ('action');
+		if($this->input->post() != null){
+			$username=$this->input->post('username');
+			$password=$this->input->post('password');
+			$role=$this->input->post('role');
 
-			$simpan_data = array(
-				'id_user'=>$id,
-				'username'=>$name,
-				'role'=>$jabatan,
-				'action'=>$action,
-				);
+			$simpan_data=array(
+				'username'=>$username,
+				'password'=>md5($password),
+				'role'=>$role);
 			$this->db->insert("user", $simpan_data);
-		} 	
-		else{
-			$this->load->view('financial/tambah_t.php');
 		}
+		$this->load->view('financial/tambah_t.php');
 	}
-		public function edit($id){
-		{
-		$where = array ('id_user'=>$id);
-		$data['financial']=$this->m_user->update($where, 'user')->result();
-		$this->load->view('update', $data);
+	public function edit($id_user = null){
+		if ($id_user != null) {
+			# code...
+			$where = array ('id_user'=>$id_user);
+			$data['financial']=$this->m_user->update($where, 'user')->result();
+								$this->load->view('update', $data);
 		}
-		
+		/**$this->load->view('financial/tambah_t.php');*/
 	}
 	public function do_edit() {
 		$id_user= $this->input->post('id_user');
@@ -65,7 +58,8 @@ class C_user extends CI_Controller {
 		$this->db->update('user',$data);
 		$kondisi = array('id_user' => $id_user);
 		$data['financial'] = $this->db->get_where('user', $kondisi)->result_array();
-		$this->load->view('financial/v_user', $data);
+		redirect('C_user/index');
+		/**$this->load->view('financial/v_user', $data);*/
 	}
 	public function delete($id_user){
 		$where = array('id_user'=>$id_user);

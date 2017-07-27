@@ -3,34 +3,36 @@ $this->load->view('template/head');
 $this->load->view('template/topbar');
 $this->load->view('template/sidebar');
 ?>
+<section class="content-header">
+	<h2>
+		<center>UPDATE DATA USER</center>
+	</h2>
+		<ol class="breadcrumb">
+			<li>
+				<a href="#"><i class="fa fa-dashboard"></i>Home</a>
+			</li>
+			<li class="active">Transaksi</li>
+		</ol>
 <!DOCTYPE>
 <html>
 <head>
-	<title></title>
-		<meta charset="utf-8">
-  		<meta name="viewport" content="width=device-width, initial-scale=1">
-  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="text-center">
-	<h2>Update Data User</h2>
 <?php
 	foreach($financial as $user){ ?>
 		<form  action="<?php echo base_url();?>C_user/do_edit" method="POST">
-		<table style="margin:20px auto;">
 		<tr>
 		<td>Username</td>
 		<td>
 		<input type="hidden" name="id_user" value="<?php echo $user->id_user ?>"
 		</td>
 		<td>
-		<input type="text" name="username" value="<?php echo $user->username ?>"
+		<input type="text" name="username" class="form-control" value="<?php echo $user->username ?>"
 		</td>
 		<td>Role</td>
-		<td><input type="text" name="role" value="<?php echo $user->role ?>"
+		<td><input type="text" name="role" class="form-control" value="<?php echo $user->role ?>"
 		</td>
+		<br>
 		<td><button type="submit" class="btn btn-success">Update</button>
 		</td>
 		</tr>

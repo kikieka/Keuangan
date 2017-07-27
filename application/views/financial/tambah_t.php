@@ -14,7 +14,6 @@ $this->load->view('template/sidebar');
         <li class="active">Transaksi</li>
         <li class="active">Tambah Transaksi</li> 
     </ol>
-    <div class="form-group" field-user>
 
 <!DOCTYPE html>
 <html>
@@ -22,28 +21,30 @@ $this->load->view('template/sidebar');
     <title></title>
 </head>
 <body>
-    <div class="form-group">
-        <label for="exampleInputName">Username</label>
-        <input type="username" class="form-control" id="exampleInputEmail1" placeholder="Username">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password Repeat</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-        <label for="exampleInputRole">Role</label><br>
-            <select name="role">
-                <option value="Super Admin">Super Admin</option>
-                <option value="Admin">Admin</option>
-                <option value="Bendahara">Bendahara</option>
-            </select>
-  <br>
-  <br>
-    <a href="financial/v_user"><button type="submit"  class="btn btn-default">Submit</button>
-    </a>
+    <form action="http://localhost/Keuangan/C_user/tambah" method="post">
+        <div class="form-group">
+            <label for="exampleInputName">Username</label>
+            <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password Repeat</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+            <label for="exampleInputRole">Role</label><br>
+                <select name="role">
+                    <option value="Super Admin">Super Admin</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Bendahara">Bendahara</option>
+                </select>
+      <br>
+      <br>
+        <button type="submit"  class="btn btn-success">Submit</button>
+        
+    </form>
 </body>
 </html>
 

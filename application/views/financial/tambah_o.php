@@ -7,14 +7,12 @@ $this->load->view('template/sidebar');
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        TAMBAH DAFTAR USER
+        TAMBAH DATA OPERASIONAL
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li class="active">Transaksi</li>
-        <li class="active">Tambah Transaksi</li> 
+        <li class="active">Transaksi</li> 
     </ol>
-    <div class="form-group" field-user>
 
 <!DOCTYPE html>
 <html>
@@ -22,37 +20,53 @@ $this->load->view('template/sidebar');
     <title></title>
 </head>
 <body>
-<form  action="<?php echo base_url();?>C_user/tambah" method="POST">
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password Repeat</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-        <label for="exampleInputRole">Role</label><br>
-            <select name="role">
-                <option value="Super Admin">Super Admin</option>
-                <option value="Admin">Admin</option>
-                <option value="Bendahara">Bendahara</option>
-            </select>
-  <br>
-  <br>
-    <a href="financial/v_user"><button type="submit" class="btn btn-default">Submit</button>
-    </a>
+<form  action="http://localhost/Keuangan/C_operasional/tambah" method="post">
+        <form action="action">
+            <div class="form-group">
+                <label>Tanggal Operasional</label>
+                <input type="date" name="tanggal" id="datepicker" class="form-control">
+                </p>
+            </div>
+                <script>
+                $(function(){
+                    $("#datepicker").datepicker();
+                });
+                </script>
+        </form>
+            <label>ID Kategori</label>
+            <input type="text" name="id_kategori" class="form-control">
+            <br>
+            <label>ID Member</label>
+            <input type="text" name="id_member" class="form-control">
+            <br>
+            <label>Tipe Operasional</label><br>
+            <select name="tipe" class="form-control">
+                    <option value="Outcome">Outcome</option>
+                    <option value="Income">Income</option>
+                </select>
+            <br>
+            <label>Jumlah Transaksi</label>
+            <input type="text" name="jml_transaksi" class="form-control">
+            <br>
+            <label>Keterangan</label>
+            <input type="text" name="keterangan" class="form-control">
+            <br>
+            <br>
+            <button type="submit" class="btn btn-success">Submit</button>
 </form>
 </body>
 </html>
-
 </section>
-
 <?php
 $this->load->view('template/js');
 ?>
 
 <!--tambahkan custom js disini-->
 <!-- jQuery UI 1.11.2 -->
+<script src="js/jquery.min.2.0.2.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="datepicker/bootstrap-datepicker.js"></script>
+<script type="text/javascript"></script>
 <script src="<?php echo base_url('assets/js/jquery-ui.min.js') ?>" type="text/javascript"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
