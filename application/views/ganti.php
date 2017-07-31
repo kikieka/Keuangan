@@ -20,35 +20,52 @@ $this->load->view('template/sidebar');
 <body>
 <?php
 	foreach($financial as $transaksi){ ?>
-		<form  action="<?php echo base_url();?>C_operasional/do_edit" method="POST">
+		<form action="<?php echo base_url();?>C_operasional/do_edit" method="post">
 		<tr>
-		<td>Tanggal Operasional</td>
-		<td>
-		<input type="hidden" name="id_transaksi" value="<?php echo $transaksi->id_transaksi ?>"
-		</td>
-		<td>
-		<input type="date" name="tanggal" class="form-control" value="<?php echo $transaksi->tanggal ?>"
-		</td>
-		<td>ID Member</td>
-		<td><input type="text" name="role" class="form-control" value="<?php echo $transaksi->id_member ?>"
-		</td>
-		<td>ID Kategori</td>
-		<td><input type="text" name="role" class="form-control" value="<?php echo $transaksi->id_kategori ?>"
-		</td>
-		<td>Tipe Operasional</td>
-		<td><input type="text" name="role" class="form-control" value="<?php echo $transaksi->tipe ?>"
-		</td>
-		<td>Jumlah Transaksi</td>
-		<td><input type="text" name="role" class="form-control" value="<?php echo $transaksi->jml_transaksi ?>"
-		</td>
-		<td>Keterangan Dana Operasional</td>
-		<td><input type="text" name="role" class="form-control" value="<?php echo $transaksi->keterangan ?>"
-		</td>
+            <div class="form-group">
+                <label>Tanggal Operasional</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <td>
+					<input type="hidden" name="id_transaksi" value="<?php echo $transaksi->id_transaksi ?>"
+					</td>
+					<td>
+                    <input type="text" name="tanggal" class="form-control" id="datepicker" value="<?php echo $transaksi->tanggal ?>"
+                </div>
+            </div>
+            </td>
+            <br>
+            <label>Kategori</label>
+            <input type="text" name="id_kategori" class="form-control" placeholder="Operasional" disabled />
+            <br>
+            	<label>Member</label>
+            		<select name="id_member" class="form-control" >
+		                   	<?php
+                   			foreach ($member as $row) {
+                        		echo "<option value='".$row->id_member."'";
+                        		echo ($transaksi->id_member == $row->id_member) ? "selected" : "";
+                        		echo ">".$row->nama."</option>";
+                    		}
+                    		?>
+                	</select>
+            <br>
+            <label>Tipe Operasional</label><br>
+            <select name="tipe" class="form-control" value="<?php echo $transaksi->tipe ?>" 
+                    <option value="Outcome">Outcome</option>
+                    <option value="Income">Income</option>
+                </select>
+            <br>
+            <label>Jumlah Transaksi</label>
+            <input type="number" name="jml_transaksi" class="form-control" value="<?php echo $transaksi->jml_transaksi ?>"
+            <br>
+            <label>Keterangan</label>
+            <input type="text" name="keterangan" class="form-control" value="<?php echo $transaksi->keterangan?>">
 		<br>
-		<td><button type="submit" class="btn btn-success">Update</button>
+		<td><input type="submit" name="submit" value="submit" class="btn btn-success">
 		</td>
 		</tr>
-		</table>
 		</form>
 	<?php }
 ?>
@@ -79,8 +96,8 @@ $this->load->view('template/js');
 		<script src="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/knob/jquery.knob.js') ?>" type="text/javascript"></script>
 		<!-- daterangepicker -->
 		<script src="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/daterangepicker/daterangepicker.js') ?>" type="text/javascript"></script>
-		<!-- datepicker -->
-		<script src="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/datepicker/bootstrap-datepicker.js') ?>" type="text/javascript"></script>
+		<!-- datepicker
+		<script src="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/datepicker/bootstrap-datepicker.js') ?>" type="text/javascript"></script>-->
 		<!-- Bootstrap WYSIHTML5 -->
 		<script src="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') ?>" type="text/javascript"></script>
 		<!-- iCheck -->
@@ -91,6 +108,15 @@ $this->load->view('template/js');
 
 		<!-- AdminLTE for demo purposes -->
 		<script src="<?php echo base_url('assets/AdminLTE-2.0.5/dist/js/demo.js') ?>" type="text/javascript"></script>
+		<!-- bootstrap datepicker -->
+		<script src="<?php echo base_url('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')?>" type="text/javascript"></script>
+
+<script type="text/javascript">
+    //Date picker
+    $('#datepicker').datepicker({
+        autoclose: true
+    })
+</script>
 
 <?php
 $this->load->view('template/foot');

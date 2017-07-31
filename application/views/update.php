@@ -22,16 +22,21 @@ $this->load->view('template/sidebar');
 	foreach($financial as $user){ ?>
 		<form  action="<?php echo base_url();?>C_user/do_edit" method="POST">
 		<tr>
-		<td>Username</td>
+		<label>Username</label><br>
 		<td>
 		<input type="hidden" name="id_user" value="<?php echo $user->id_user ?>"
 		</td>
 		<td>
 		<input type="text" name="username" class="form-control" value="<?php echo $user->username ?>"
 		</td>
-		<td>Role</td>
-		<td><input type="text" name="role" class="form-control" value="<?php echo $user->role ?>"
-		</td>
+		<br>
+		<label>Role</label><br>
+            <select name="role" class="form-control">
+                    <option value="Super Admin">Super Admin</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Bendahara">Bendahara</option>
+                </select>
+        <br>
 		<br>
 		<td><button type="submit" class="btn btn-success">Update</button>
 		</td>

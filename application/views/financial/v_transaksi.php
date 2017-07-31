@@ -28,26 +28,28 @@ $this->load->view('template/sidebar');
                 <div class="box-body">
                   <table class="table table-bordered">
                     <tr>
-                      <th style="width: 10px">ID</th>
+                      <th>No</th>
                       <th>Tanggal</th>
                       <th>ID_member</th>
                       <th>Kategori</th>
                       <th>Type</th>
                       <th>Jumlah</th>
                       <th>Keterangan</th>
-                      <th>Action</th>
+                      <!--<th>Action</th>-->
                     </tr>
                     <?php  
                   $id_transaksi=1;
                   foreach ($financial as $transaksi) {
                     echo "<tr>";
-                    echo '<td>'.$transaksi['id_transaksi']."</td>";
+                    echo '<td>'.$id_transaksi."</td>";
                     echo '<td>'.$transaksi['tanggal']."</td>";
                     echo '<td>'.$transaksi['id_member']."</td>";
                     echo '<td>'.$transaksi['id_kategori']."</td>";
                     echo '<td>'.$transaksi['tipe']."</td>";
                     echo '<td>'.$transaksi['jml_transaksi']."</td>";
                     echo '<td>'.$transaksi['keterangan']."</td>";
+
+                    $id_transaksi++;
                     //echo '<td>'.anchor('buku/edit/'.$buku['idNovel'],'Edit')."</td>";
                     //echo '<td><a data-toggle="modal" id="test" data-target="#m_delete" data-href="'.base_url()."buku/hapus/".$buku['idNovel'].'"> Hapus</td>';
                     //echo '<td>'.anchor('buku/hapus/'.$buku['idNovel'],'Hapus')."</td>";

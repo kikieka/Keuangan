@@ -18,7 +18,7 @@ $this->load->view('template/sidebar');
           <div class="row">
             <div class="col-md-12">
             <p>
-            <a class="btn btn-success" href="<?php echo base_url('C_user/tambah')?>" type="submit">Add User</a>
+            <a class="btn btn-success" href="<?php echo base_url('C_user/tambah')?>" type="submit">Tambah User</a>
             </p>
               <div class="box">
                 <div class="box-header">
@@ -27,7 +27,7 @@ $this->load->view('template/sidebar');
                 <div class="box-body">
                   <table class="table table-bordered">
                     <tr>
-                      <th style="width: 10px">ID</th>
+                      <th>No</th>
                       <th>Username</th>
                       <th>Role</th>
                       <th colspan="2">Action</th>
@@ -36,11 +36,11 @@ $this->load->view('template/sidebar');
                   $id_user=1;
                   foreach ($financial as $user) {
                     echo "<tr>";
-                    echo '<td>'.$user['id_user']."</td>";
+                    echo '<td>'.$id_user."</td>";
                     echo '<td>'.$user['username']."</td>";
                     echo '<td>'.$user['role']."</td>";
-                    echo '<td>'.anchor('C_user/edit/'.$user['id_user'],'Update')."</td>";
-                    echo '<td>'.anchor('C_user/delete/'.$user['id_user'],'Delete').'</td>';                    
+                    echo "<td><a href ='".base_url()."C_user/edit/".$user['id_user'],"'class='btn-group btn-warning btn-xs'><span class='glyphicon glyphicon-edit'></span>Edit <a href='".base_url()."C_user/delete/". $user['id_user']."' class='btn-group btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Del</a></td>";                  
+                    $id_user ++;  
                     /**echo '<td>'.$user['action']."</td>";*/
                     //echo '<td>'.anchor('buku/edit/'.$buku['idNovel'],'Edit')."</td>";
                     //echo '<td><a data-toggle="modal" id="test" data-target="#m_delete" data-href="'.base_url()."buku/hapus/".$buku['idNovel'].'"> Hapus</td>';

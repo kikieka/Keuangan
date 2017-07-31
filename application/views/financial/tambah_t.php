@@ -36,7 +36,6 @@ $this->load->view('template/sidebar');
         </div>
             <label for="exampleInputRole">Role</label><br>
                 <select name="role">
-                    <option value="Super Admin">Super Admin</option>
                     <option value="Admin">Admin</option>
                     <option value="Bendahara">Bendahara</option>
                 </select>

@@ -21,23 +21,26 @@ $this->load->view('template/sidebar');
 </head>
 <body>
 <form  action="http://localhost/Keuangan/C_operasional/tambah" method="post">
-        <form action="action">
             <div class="form-group">
                 <label>Tanggal Operasional</label>
-                <input type="date" name="tanggal" id="datepicker" class="form-control">
-                </p>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" name="tanggal"  class="form-control" id="datepicker">
+                </div>
             </div>
-                <script>
-                $(function(){
-                    $("#datepicker").datepicker();
-                });
-                </script>
-        </form>
-            <label>ID Kategori</label>
-            <input type="text" name="id_kategori" class="form-control">
+            <label>Kategori</label>
+            <input type="text" name="id_kategori" class="form-control" placeholder="Operasional" disabled />
             <br>
-            <label>ID Member</label>
-            <input type="text" name="id_member" class="form-control">
+            <label>Member</label>
+            <select name="id_member" class="form-control">
+                    <?php
+                    foreach ($member as $row) {
+                        echo "<option value='".$row->id_member."'>".$row->nama."</option>";
+                    }
+                    ?>
+                </select>
             <br>
             <label>Tipe Operasional</label><br>
             <select name="tipe" class="form-control">
@@ -46,13 +49,13 @@ $this->load->view('template/sidebar');
                 </select>
             <br>
             <label>Jumlah Transaksi</label>
-            <input type="text" name="jml_transaksi" class="form-control">
+            <input type="number" name="jml_transaksi" class="form-control">
             <br>
             <label>Keterangan</label>
             <input type="text" name="keterangan" class="form-control">
             <br>
             <br>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <input type="submit" name="submit" value="submit" class="btn btn-success">
 </form>
 </body>
 </html>
@@ -65,7 +68,7 @@ $this->load->view('template/js');
 <!-- jQuery UI 1.11.2 -->
 <script src="js/jquery.min.2.0.2.js"></script>
 <script src="bootstrap/js/bootstrap.js"></script>
-<script src="datepicker/bootstrap-datepicker.js"></script>
+<!-- <script src="datepicker/bootstrap-datepicker.js"></script> -->
 <script type="text/javascript"></script>
 <script src="<?php echo base_url('assets/js/jquery-ui.min.js') ?>" type="text/javascript"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -85,7 +88,7 @@ $this->load->view('template/js');
 <!-- daterangepicker -->
 <script src="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/daterangepicker/daterangepicker.js') ?>" type="text/javascript"></script>
 <!-- datepicker -->
-<script src="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/datepicker/bootstrap-datepicker.js') ?>" type="text/javascript"></script>
+<!-- <script src="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/datepicker/bootstrap-datepicker.js') ?>" type="text/javascript"></script> -->
 <!-- Bootstrap WYSIHTML5 -->
 <script src="<?php echo base_url('assets/AdminLTE-2.0.5/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') ?>" type="text/javascript"></script>
 <!-- iCheck -->
@@ -96,7 +99,16 @@ $this->load->view('template/js');
 
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/AdminLTE-2.0.5/dist/js/demo.js') ?>" type="text/javascript"></script>
+<!-- bootstrap datepicker -->
+<script src="<?php echo base_url('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')?>" type="text/javascript"></script>
+
+<script type="text/javascript">
+    //Date picker
+    $('#datepicker').datepicker({
+        autoclose: true
+    })
+</script>
 
 <?php
-$this->load->view('template/foot');
+    $this->load->view('template/foot');
 ?>

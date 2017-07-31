@@ -12,17 +12,21 @@ class C_operasional extends CI_Controller {
 
 	public function index()
 	{
-		$data['financial']=$this->db->query('select * from transaksi where id_kategori="1234"')->result_array();
+		$data['financial']=$this->db->query('SELECT transaksi.id_transaksi as id_transaksi, transaksi.tanggal as tanggal, member.nama as nama, kategori.nama_kategori as nama_kategori, transaksi.tipe as tipe, transaksi.jml_transaksi as jml_transaksi, transaksi.keterangan as keterangan from member join transaksi on member.id_member = transaksi.id_member join kategori on kategori.id_kategori=transaksi.id_kategori where kategori.id_kategori="1"')->result_array();
 		$this->load->view('financial/v_operasional', $data);
 	}
 
 	public function tambah()
 	{
-		if ($this->input->post() !=null) {
+
+		//$data ['financial']=$this->db->query('select* from member')->result_array();
+		//$data ['kategori']=$this->db->query('select* from kategori')->result_array();
+
+		if (isset($_POST['submit'])) {
 			$id 			=	$this->input->post ('id_transaksi');
-			$tgl			=	date('Y-m-d H-i-s', strtotime($tgl));
+			$tgl			=	date('Y-m-d H-i-s', strtotime($this->input->post('tanggal')));
 			$id_member 		=	$this->input->post ('id_member');
-			$id_kategori 	=	$this->input->post ('id_kategori');
+			//$id_kategori 	=	$this->input->post ('id_kategori');
 			$tipe	 		=	$this->input->post ('tipe');
 			$jml_transaksi 	=	$this->input->post ('jml_transaksi');
 			$keterangan 	=	$this->input->post ('keterangan');
@@ -31,23 +35,24 @@ class C_operasional extends CI_Controller {
 				'id_transaksi'=>$id,
 				'tanggal'=>$tgl,
 				'id_member'=>$id_member,
-				'id_kategori'=>$id_kategori,
+				'id_kategori'=>'1',
 				'tipe'=>$tipe,
 				'jml_transaksi'=>$jml_transaksi,
-				'keterangan'=>$keterangan,
+				'keterangan'=>$keterangan
 				);
-			$this->db->insert("transaksi", $simpan_data);
-			redirect(base_url('C_operasional'));
+
+			//var_dump($simpan_data);
+			$result = $this->db->insert("transaksi", $simpan_data);
+			//redirect(base_url('C_operasional'));
 		}
-		else{
-			$this->load->view('financial/tambah_o.php');
+			$data['member'] =$this->db->get('member')->result();
+			$this->load->view('financial/tambah_o.php',$data);
 		}
-	}
 	public function edit($id=null){
 		if ($id !=null) {
-			# code...
 			$where = array('id_transaksi'=>$id);
 			$data['financial'] = $this->m_operasional->update($where,'transaksi')->result();
+								$data['member'] =$this->db->get('member')->result();
 								$this->load->view('ganti',$data);
 		}
 	}
@@ -63,7 +68,7 @@ class C_operasional extends CI_Controller {
 		$data = array(
 			'id_transaksi'=>$id,
 			'tanggal'=>$tgl,
-			'id_kategori'=>$id_kategori,
+			'id_kategori'=>'1',
 			'id_member'=>$id_member,
 			'tipe'=>$tipe,
 			'jml_transaksi'=>$jml_transaksi,
@@ -72,7 +77,7 @@ class C_operasional extends CI_Controller {
 
 		$this->db->where('id_transaksi',$id);
 		$this->db->update('transaksi',$data);
-		$kondisi = array('id_transaksi'=>$id);
+		//$kondisi = array('id_transaksi'=>$id);
 		$data['financial'] = $this->db->get_where('transaksi', $kondisi)->result_array();
 		redirect('C_operasional/index');
 	}

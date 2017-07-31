@@ -5,10 +5,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="<?php echo base_url('assets/AdminLTE-2.0.5/dist/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image" />
+                <img src="<?php echo base_url('assets/AdminLTE-2.0.5/dist/img/logo.jpeg') ?>" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>Hidayatul Vicria</p>
+                <p>Insyaallah</p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -31,8 +31,9 @@
                     <i class="fa fa-laptop"></i> <span>Transaksi</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo site_url('C_incometransaksi') ?>"><i class="fa fa-circle-o text-info"></i> Input Income</a></li>
-                    <li><a href="<?php echo site_url('C_outcometransaksi') ?>"><i class="fa fa-circle-o text-info"></i> Input Outcome</a></li>
+                    <li><a href="<?php echo site_url('C_transaksi/tampil') ?>"><i class="fa fa-circle-o text-info"></i>Daftar Transaksi</a></li>
+                    <li><a href="<?php echo site_url('C_transaksi/income') ?>"><i class="fa fa-circle-o text-info"></i> Input Income</a></li>
+                    <li><a href="<?php echo site_url('C_transaksi/outcome') ?>"><i class="fa fa-circle-o text-info"></i> Input Outcome</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -48,7 +49,7 @@
             </li>
             <li>
                 <a href="#">
-                    <i class="fa fa-th"></i> 
+                    <i class="fa fa-user"></i> 
                     <span>User</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -63,8 +64,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o text-info"></i> Daftar Member</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-info"></i> CRUD member</a></li>
+                    <li><a href="<?php echo base_url('C_member/tampil')?>"><i class="fa fa-circle-o text-info"></i> Daftar Member</a></li>
                 </ul>
             </li>            
             <li class="treeview">
@@ -74,13 +74,12 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o text-info"></i> Daftar Kategori</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o text-info"></i> CRUD kategori</a></li>
+                    <li><a href="<?php echo base_url('C_kategori/tampil')?>"><i class="fa fa-circle-o text-info"></i> Daftar Kategori</a></li>
                 </ul>
             </li>            
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-pie-chart"></i>
+                    <i class="fa fa-edit"></i>
                     <span>Report</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
